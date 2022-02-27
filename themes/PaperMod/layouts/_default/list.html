@@ -6,67 +6,58 @@
 
 {{- if not .IsHome | and .Title }}
 <header class="page-header">
-  {{- partial "breadcrumbs.html" . }}
   <h1>{{ .Title }}</h1>
-  {{- if .Description }}
-  <div class="post-description">
-    {{ .Description | markdownify }}
-  </div>
-  {{- end }}
 </header>
 {{- end }}
 
-{{- if .Content }}
-<div class="post-content">
-  {{- if not (.Param "disableAnchoredHeadings") }}
-  {{- partial "anchored_headings.html" .Content -}}
-  {{- else }}{{ .Content }}{{ end }}
-</div>
-{{- end }}
-
-{{- $pages := union .RegularPages .Sections }}
+{{- $pages := .RegularPages }}
 
 {{- if .IsHome }}
 {{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
-{{- end }}
+{{- end}}
 
-{{- $paginator := .Paginate $pages }}
+{{ $paginator := .Paginate $pages }}
 
-{{- if and .IsHome .Site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}
-{{- partial "home_info.html" . }}
-{{- end }}
-
-{{- $term := .Data.Term }}
 {{- range $index, $page := $paginator.Pages }}
 
 {{- $class := "post-entry" }}
-
-{{- $user_preferred := or .Site.Params.disableSpecial1stPost .Site.Params.homeInfoParams }}
-{{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) (not $user_preferred)) }}
+{{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0)) }}
+{{- if .Site.Params.homeInfoParams | or .Site.Params.disableSpecial1stPost}}
+{{- partial "home_info.html" . }}
+{{- else}}
 {{- $class = "first-entry" }}
-{{- else if $term }}
+{{- end }}
+{{- else if .Data.Term }}
 {{- $class = "post-entry tag-entry" }}
 {{- end }}
-
 <article class="{{ $class }}">
-  {{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
-  {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
+  {{- if .Params.cover.image }}
+  <figure class="entry-cover">
+    {{- if (or (fileExists (path.Join "static" .Params.cover.image)) (hasPrefix .Params.cover.image "http://") (hasPrefix .Params.cover.image "https://")) }}
+    <img src="{{ .Params.cover.image | absURL }}" alt="{{ .Params.cover.alt | plainify }}">
+    {{- else}}
+    <img src="{{ .Permalink -}} {{- .Params.cover.image }}" alt="{{ .Params.cover.alt | plainify }}">
+    {{- end}}
+  </figure>
+  {{- end }}
   <header class="entry-header">
     <h2>
-      {{- .Title }}
-      {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+      {{ .Title }}
+      {{- if .Draft }}<div class="entry-isdraft"><sup>&nbsp;&nbsp;[draft]</sup></div>{{- end }}
     </h2>
   </header>
-  {{- if (ne (.Param "hideSummary") true) }}
+  {{- if (ne .Site.Params.hideSummary true)}}
   <section class="entry-content">
-    <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    <p>{{ .Summary | plainify | htmlUnescape }}...</p>
   </section>
   {{- end }}
-  {{- if not (.Param "hideMeta") }}
   <footer class="entry-footer">
-    {{- partial "post_meta.html" . -}}
+    <time>{{ .Date.Format "January 2, 2006" }}</time>
+    {{- if $.Site.Params.ShowReadingTime }}&nbsp;·&nbsp;
+    {{- $default_txt := print .ReadingTime " " "min" }}
+    {{- i18n "read_time" .ReadingTime | default  $default_txt  }}{{ end }}
+    {{- if or .Params.author .Site.Params.author }}&nbsp;·&nbsp;{{- .Params.author | default .Site.Params.author }}{{ end }}
   </footer>
-  {{- end }}
   <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
 </article>
 {{- end }}
@@ -75,15 +66,13 @@
 <footer class="page-footer">
   <nav class="pagination">
     {{- if $paginator.HasPrev }}
-    <a class="prev" href="{{ $paginator.Prev.URL | absURL }}">« {{ i18n "prev_page" }}</a>
+    <a class="prev" href="{{ $paginator.Prev.URL }}">« {{ i18n "prev_page" }}</a>
     {{- end }}
     {{- if $paginator.HasNext }}
-    <a class="next" href="{{ $paginator.Next.URL | absURL }}">{{ i18n "next_page" }} »</a>
+    <a class="next" href="{{ $paginator.Next.URL }}">{{ i18n "next_page" }} »</a>
     {{- end }}
   </nav>
 </footer>
 {{- end }}
-
-{{- end }}{{/* end profileMode */}}
-
-{{- end }}{{- /* end main */ -}}
+{{end}}{{/* end profileMode */}}
+{{- end  }}{{- /* end main */ -}}

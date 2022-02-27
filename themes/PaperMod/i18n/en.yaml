@@ -14,12 +14,3 @@
 
 - id: translations
   translation: "Translations"
-
-- id: home
-  translation: "Home"
-
-- id: code_copy
-  translation: "copy"
-
-- id: code_copied
-  translation: "copied!"

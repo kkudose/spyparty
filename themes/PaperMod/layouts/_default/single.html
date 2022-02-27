@@ -2,58 +2,70 @@
 
 <article class="post-single">
   <header class="post-header">
-    {{ partial "breadcrumbs.html" . }}
     <h1 class="post-title">
       {{ .Title }}
-      {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+      {{- if .Draft }}<div class="entry-isdraft"><sup>&nbsp;&nbsp;[draft]</sup></div>{{- end }}
     </h1>
-    {{- if .Description }}
-    <div class="post-description">
-      {{ .Description }}
-    </div>
-    {{- end }}
-    {{- if not (.Param "hideMeta") }}
+    {{- if .Params.hideMeta }}{{ else }}
     <div class="post-meta">
-      {{- partial "post_meta.html" . -}}
-      {{- partial "translation_list.html" . -}}
-      {{- partial "edit_post.html" . -}}
-      {{- partial "post_canonical.html" . -}}
+      <time>{{ .Date.Format "January 2, 2006" }}</time>
+      {{- if $.Site.Params.ShowReadingTime -}}&nbsp;·&nbsp;
+      {{- $default_txt := print .ReadingTime " " "min" }}
+      {{- i18n "read_time" .ReadingTime | default  $default_txt  }}{{ end }}
+      {{- if or .Params.author .Site.Params.author }}&nbsp;·&nbsp;{{- .Params.author | default .Site.Params.author }}{{ end }}
+      {{- if .IsTranslated -}}&nbsp;|&nbsp;
+      <ul class="i18n_list">
+        {{- i18n "translations" | default "Translations"}}:
+        {{- range .Translations }}
+        <li>
+          <a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+        </li>
+        {{- end }}
+      </ul>
+      {{- end }}
     </div>
-    {{- end }}
+    {{- end}}
   </header>
-  {{- $isHidden := .Params.cover.hidden | default .Site.Params.cover.hiddenInSingle | default .Site.Params.cover.hidden }}
-  {{- partial "cover.html" (dict "cxt" . "IsHome" false "isHidden" $isHidden) }}
-  {{- if (.Param "ShowToc") }}
-  {{- partial "toc.html" . }}
+  {{- if .Params.cover.image }}
+  <figure class="entry-cover">
+    {{- if (or (fileExists (path.Join "static" .Params.cover.image)) (hasPrefix .Params.cover.image "http://") (hasPrefix .Params.cover.image "https://")) }}
+    <img src="{{ .Params.cover.image | absURL }}" alt="{{ .Params.cover.alt | plainify }}">
+    {{- else}}
+    <img src="{{ .Permalink -}} {{- .Params.cover.image }}" alt="{{ .Params.cover.alt | plainify }}">
+    {{- end}}
+    <p>{{.Params.cover.caption | markdownify }}</p>
+  </figure>
   {{- end }}
-
-  {{- if .Content }}
-  <div class="post-content">
-    {{- if not (.Param "disableAnchoredHeadings") }}
-    {{- partial "anchored_headings.html" .Content -}}
-    {{- else }}{{ .Content }}{{ end }}
+  {{- if .Params.ShowToc }}
+  <div class="toc">
+    <details {{if .Params.TocOpen }} open{{ end }}>
+      <summary>
+        <div class="details">{{- i18n "toc" | default "Table of Contents" }}</div>
+      </summary>
+      <blockquote>
+        {{- partial "toc.html" . }}
+      </blockquote>
+    </details>
   </div>
   {{- end }}
-
+  <div class="post-content">{{ .Content }}</div>
   <footer class="post-footer">
     {{- if .Params.tags }}
     <ul class="post-tags">
-      {{- range ($.GetTerms "tags") }}
-      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+      {{- range .Params.tags }}
+      {{- $href := print (absLangURL "tags/") (urlize .) }}
+      <li><a href="{{ $href }}">{{ . }}</a></li>
       {{- end }}
     </ul>
     {{- end }}
-    {{- if (.Param "ShowPostNavLinks") }}
-    {{- partial "post_nav_links.html" . }}
-    {{- end }}
-    {{- if (and .Site.Params.ShowShareButtons (ne .Params.disableShare true)) }}
-    {{- partial "share_icons.html" . -}}
+    {{- if (and .Site.Params.ShowShareButtons (ne .Params.disableShare true) ) }}
+    {{- partial "share_icons.html" . }}
     {{- end }}
   </footer>
 
-  {{- if (.Param "comments") }}
+  {{- if and ($.Site.Params.comments) (ne .Params.comments false) }}
   {{- partial "comments.html" . }}
   {{- end }}
 </article>
 
-{{- end }}{{/* end main */}}
+{{- end  }}{{/* end main */}}
