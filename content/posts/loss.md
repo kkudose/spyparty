@@ -1,7 +1,7 @@
 ---
 title: "Leaflet of SpyParty Strategies"
 date: 2022-02-27T15:00:10-06:00
-draft: true
+draft: false
 ---
 
 SpyParty is complex and subtle; Leaflet of SpyParty Strategies is simple and absolute. This guide may be considered a tutorial supplement covering strategies rather than descriptions and definitions.
