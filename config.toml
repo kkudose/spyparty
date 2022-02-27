@@ -2,4 +2,6 @@ baseURL = 'http://example.org/'
 languageCode = 'en-us'
 title = ''
 theme = 'PaperMod'
-params.hideFooter = true
+
+[params]
+hideFooter = true
