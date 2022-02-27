@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://spyparty.pages.dev'
 languageCode = 'en-us'
 title = ''
 theme = 'PaperMod'
