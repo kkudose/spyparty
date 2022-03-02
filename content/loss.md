@@ -4,10 +4,7 @@ date: 2022-02-28T00:00:00-06:00
 draft: false
 ---
 
-SpyParty is complex and subtle; Leaflet of SpyParty Strategies is simple and absolute. This guide:
-
-- is meant to be accessible with minimal jargon, but knowing the missions is a prerequisite.
-- favors brevity over technical accuracy.
+SpyParty is complex and subtle; Leaflet of SpyParty Strategies is simple and absolute. This guide is meant to be accessible with minimal jargon, but knowing the missions is a prerequisite. Brevity is favored over technical accuracy.
 
 Don't miss out on better (but much more verbose) guides in the [SpyParty Discord](https://discord.gg/spyparty).
 
@@ -32,25 +29,25 @@ Don't miss out on better (but much more verbose) guides in the [SpyParty Discord
 - Minimize the number of times you **Contact** each game (since each **Contact** gives info to the sniper). When you **Contact**, ensure you complete at least one mission (usually the **Contact** itself), and try to complete another mission immediately before or after.
 
 ### 4: You don't know what snipers know—find out, don't assume.
-- There's actions or behaviors that a spy is *supposed* to follow to act like an NPC. Don't bother unless the sniper shoots you for not doing so.
+- There's actions or behaviors that a spy is supposed to follow to act like an NPC. Don't bother unless the sniper shoots you for not doing so.
 - e.g. only a spy can **gulp** a drink (NPCs must sip thrice), but there's no harm in gulping if the sniper isn't going to notice.
 
 -----
 ## As Sniper
 
-### 6: Hold steady—spies don't finish.
+### 5: Hold steady—spies don't finish.
 - Spies lose if they run out of time. Spies win if you shoot a non-player character.
 - Wait until you have a high level of confidence rather than shooting on first suspicion.
 
-### 7: Focus, but don't tunnel on people.
+### 6: Focus, but don't tunnel on people.
 - If you tunnel, the only way you're going to win is if the spy runs out of time or you tunneled on the right person.
 
-### 8: Prioritize missions, but do not be predictable.
+### 7: Prioritize missions, but do not be predictable.
 - Watching all the missions poorly is worse than watching some of the missions well. However, if you are predictable, then the spy can avoid the missions you watch.
 - Learn to actively watch for missions one at a time. With time, you will be able to passively watch some missions effectively.
 - Note that **Add Time** is not a mission—a spy cannot win by adding time.
 
-### 9: Light 'em up.
+### 8: Light 'em up.
 - Lights are the primary tool for a sniper and are most commonly used in the following ways, but the important part is making sure to use them:
     - Highlights—to indicate who has visited a statue (or completed Inspect).
     - Lowlights—to indicate who was outside of a conversation when **Contact** occurs (or more generally who is definitely not the spy).
@@ -59,5 +56,5 @@ Don't miss out on better (but much more verbose) guides in the [SpyParty Discord
 -----
 ### Bonus: Leave the briefcase alone.
 - The briefcase is complicated enough that there's [several](https://docs.google.com/document/d/1Waj0T5ZvYo4V7p7EOFMOMNN8VQ2CeIk2wo8pk7f9pls/edit?usp=sharing) [guides](https://www.youtube.com/watch?v=3oXj57k6cMA) dedicated entirely to this cursed object.
-- (Spy) Pick up the case if it's near you but not near the **Ambassador**, then return the case to the **Ambassador** by standing behind them.
-- (Sniper) If you think the way a person interacted with the briefcase is suspicious, don't risk your game on it—you're probably wrong—but remember it for the replay.
+- Spy: Pick up the case if it's near you but not near the **Ambassador**, then return the case to the **Ambassador** by standing behind them.
+- Sniper: If you think the way a person interacted with the briefcase is suspicious, don't risk your game on it—you're probably wrong—but remember it for the replay.
