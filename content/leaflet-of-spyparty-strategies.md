@@ -1,6 +1,6 @@
 ---
 title: "Leaflet of SpyParty Strategies"
-date: 2022-02-28T00:00:00-06:00
+date: 2022-03-01T00:00:00-06:00
 draft: false
 ---
 
@@ -24,7 +24,7 @@ Don't miss out on better (but much more verbose) guides in the [SpyParty Discord
 
 ### 2: Be opportunistic, not reckless.
 - Be ready to take an opportunity when a mission is favorable—but also be aware of the risks.
-    - e.g. the **Ambassador** happens to join a crowded conversation right next to you. Before you immediately **Bug**, just because you can, consider the following: Is there anything blocking the sniper's view? Are there any people at bookshelves or statues, or otherwise distracting the sniper?
+    - e.g. the **Ambassador** happens to join a crowded conversation right next to you. Before you immediately **Bug** just because you can, consider the following: Is there anything blocking the sniper's view? Are there any people at bookshelves or statues, or otherwise distracting the sniper?
 - The first 10s is often a good opportunity to complete **Bug**, **Purloin**, **Swap**, or even **Add Time**. Everyone is moving so the sniper is distracted.
 
 ### 3: Share banana bread generously, but infrequently.
@@ -53,13 +53,13 @@ Don't miss out on better (but much more verbose) guides in the [SpyParty Discord
 - Note that **Add Time** is not a mission—a spy cannot win by adding time.
 
 ### 8: Light 'em up.
-- Lights are the primary tool for a sniper and are most commonly used in the following ways, but the important part is making sure to use them:
-    - Highlights—to indicate who has visited a statue (or completed Inspect).
-    - Lowlights—to indicate who was outside of a conversation when **Contact** occurs (or more generally a confirmed NPC).
+- Lights are the primary tool for a sniper and are most commonly used in the following ways, but the important part is making sure to use them.
+    - Highlights: to indicate who has visited a statue (or completed **Inspect**).
+    - Lowlights: to indicate who was outside of a conversation when **Contact** occurs (or a confirmed NPC).
 - Many people also lowlight cast (people with triangles over them) since they cannot be the spy.
 
 -----
 ### Bonus: Leave the briefcase alone.
 - The briefcase is complicated enough that there's [several](https://docs.google.com/document/d/1Waj0T5ZvYo4V7p7EOFMOMNN8VQ2CeIk2wo8pk7f9pls/edit?usp=sharing) [guides](https://www.youtube.com/watch?v=3oXj57k6cMA) dedicated entirely to this cursed object.
 - Spy: Pick up the case if it's near you but not near the **Ambassador**, then return the case to the **Ambassador** by standing behind them.
-- Sniper: If you think the way a person interacted with the briefcase is suspicious, don't risk your game on it—you're probably wrong—but remember it for the replay.
+- Sniper: If you think the way a person interacted with the case is suspicious, don't risk your game on it—you're probably wrong—but remember it for the replay.
