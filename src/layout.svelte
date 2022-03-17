@@ -13,6 +13,10 @@
 	export let title
 </script>
 
+<svelte:head>
+	<title>{title}</title>
+</svelte:head>
+
 <Grid>
 	<Row>
 		<Column sm={0} md={1} lg={4} />
@@ -27,28 +31,32 @@
 <!-- TODO: get rid of global styles and !important -->
 <style global>
 	@font-face {
+		font-display: swap;
 		font-family: 'Barlow';
-		src: url('/fonts/Barlow-Regular.ttf');
 		font-weight: normal;
+		src: url('/fonts/Barlow-Regular.ttf');
 	}
 	@font-face {
+		font-display: swap;
 		font-family: 'Barlow';
-		src: url('/fonts/Barlow-Bold.ttf');
 		font-weight: bold;
+		src: url('/fonts/Barlow-Bold.ttf');
 	}
 	@font-face {
+		font-display: swap;
 		font-family: 'Barlow';
-		src: url('/fonts/Barlow-Medium.ttf');
 		font-weight: 500;
+		src: url('/fonts/Barlow-Medium.ttf');
 	}
 	@font-face {
+		font-display: swap;
 		font-family: 'Barlow';
-		src: url('/fonts/Barlow-SemiBold.ttf');
 		font-weight: 600;
+		src: url('/fonts/Barlow-SemiBold.ttf');
 	}
 
 	body {
-		font-family: 'Barlow' !important;
+		font-family: 'Barlow', Helvetica, Arial, sans-serif !important;
 	}
 
 	hr {
