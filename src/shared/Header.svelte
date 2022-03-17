@@ -1,16 +1,17 @@
 <script lang="ts">
-	import 'carbon-components-svelte/css/all.css';
-	import { Column, Row, Theme } from 'carbon-components-svelte';
-	import type { CarbonTheme } from 'carbon-components-svelte/types/Theme/Theme.svelte';
-	import Moon20 from 'carbon-icons-svelte/lib/Moon20';
-	import Sun20 from 'carbon-icons-svelte/lib/Sun20';
+	import 'carbon-components-svelte/css/all.css'
+	import { Column, Row, Theme } from 'carbon-components-svelte'
+	import type { CarbonTheme } from 'carbon-components-svelte/types/Theme/Theme.svelte'
+	import Moon20 from 'carbon-icons-svelte/lib/Moon20'
+	import Sun20 from 'carbon-icons-svelte/lib/Sun20'
 
-	export let title: string;
+	export let title: string
 
-	let theme: CarbonTheme = 'g100';
+	let theme: CarbonTheme = 'g100'
+
 	const handleToggle = () => {
-		theme = theme === 'g100' ? 'white' : 'g100';
-	};
+		theme = theme === 'g100' ? 'white' : 'g100'
+	}
 </script>
 
 <Row>

@@ -1,16 +1,16 @@
 <script context="module">
-	export { OutboundLink as a, Tile as blockquote } from 'carbon-components-svelte';
-	import Lookup from './routes/leaflet-of-spyparty-strategies/Lookup.svelte';
-	export { Lookup as del };
+	export { OutboundLink as a, Tile as blockquote } from 'carbon-components-svelte'
+	import Lookup from './routes/leaflet-of-spyparty-strategies/Lookup.svelte'
+	export { Lookup as del }
 </script>
 
 <!-- mdsvex does not support TS -->
 <script>
-	import { Column, Grid, Row } from 'carbon-components-svelte';
+	import { Column, Grid, Row } from 'carbon-components-svelte'
 
-	import Header from './shared/Header.svelte';
+	import Header from './shared/Header.svelte'
 
-	export let title;
+	export let title
 </script>
 
 <Grid>

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { TooltipDefinition } from 'carbon-components-svelte';
-	import { DICTIONARY } from './dictionary';
+	import { TooltipDefinition } from 'carbon-components-svelte'
+	import { DICTIONARY } from './dictionary'
 
-	let text: string;
-	$: definition = DICTIONARY[text?.toLowerCase()];
+	let text: string
+	$: definition = DICTIONARY[text?.toLowerCase()]
 </script>
 
 <TooltipDefinition class="tooltip" tooltipText={definition}>
