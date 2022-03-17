@@ -1,7 +1,0 @@
-baseURL = 'https://spyparty.pages.dev'
-languageCode = 'en-us'
-title = ''
-theme = 'PaperMod'
-
-[params]
-hideFooter = true
